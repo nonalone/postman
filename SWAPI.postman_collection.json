@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "917409ae-8319-453f-bdc7-58d927f8f6fd",
+		"name": "SWAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17169448"
+	},
+	"item": [
+		{
+			"name": "get all planets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name of a planet is include in swapi\", () =>{\r",
+							"    pm.expect(pm.response.text()).to.include(\"Tatooine\")\r",
+							"})\r",
+							"\r",
+							"const responeJson = pm.response.json();\r",
+							"\r",
+							"console.log(responeJson)\r",
+							"console.log(responeJson.results[1].name)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/planets/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"planets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1_planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Name of a planet is include in swapi\", () =>{\r",
+							"    pm.expect(pm.response.text()).to.include(\"Alderan\")\r",
+							"})\r",
+							"\r",
+							"const responeJson = pm.response.json();\r",
+							"\r",
+							"console.log(responeJson)\r",
+							"// console.log(responeJson.results[1].name)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/planets/1/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"planets",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "22_planet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/planets/22",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"planets",
+						"22"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
